@@ -1,18 +1,23 @@
 ---
 import { Image } from "astro:assets";
+import "../styles/global.css";
 ---
 
 <div>
   <Image
+    class="logo-img"
     loading={"eager"}
     src={"https://logowik.com/content/uploads/images/coffee2253.jpg"}
     height={100}
     width={130}
-    alt="a coffee"
+    alt="Company coffee logo"
   />
 </div>
 <style>
   div {
-    border-radius: 6px;
+    background-color: var(--color-primary-a10);
+  }
+  .logo-img {
+    mix-blend-mode: multiply;
   }
 </style>

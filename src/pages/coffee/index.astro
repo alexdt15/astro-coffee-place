@@ -1,7 +1,45 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import Card from "../../components/Card.astro";
+import coffeeList from "../../data/coffeeList.json";
+import { Coffee } from "../../data/types";
+
+const coffeeListResult: Coffee[] = JSON.stringify(
+  coffeeList
+) as unknown as Coffee[];
+console.log(coffeeList);
 ---
 
 <BaseLayout>
   <h2>List of Coffee Origins ☕</h2>
+  <ul role="list" class="link-card-grid">
+    {
+      coffeeListResult.length > 0 ? (
+        coffeeList.map((coffee: any) => (
+          <Card
+            title={coffee.nombre}
+            body={coffee.notas_cata}
+            href="https://astro.build/integrations/"
+          />
+        ))
+      ) : (
+        <div>
+          <h2>Actualmente estamos sin stock</h2>
+          <h3>Pero tranquilo, estamos tostando más!</h3>
+        </div>
+      )
+    }
+  </ul>
+  <style>
+    h3 {
+      text-align: center;
+    }
+
+    .link-card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      padding: 0;
+    }
+  </style>
 </BaseLayout>
