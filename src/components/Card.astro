@@ -1,61 +1,95 @@
 ---
 interface Props {
-	title: string;
-	body: string;
-	href: string;
+  title: string;
+  body: string;
+  href: string;
 }
 
 const { href, title, body } = Astro.props;
 ---
 
-<li class="link-card">
-	<a href={href}>
-		<h2>
-			{title}
-			<span>&rarr;</span>
-		</h2>
-		<p>
-			{body}
-		</p>
-	</a>
-</li>
+<div class="product-card">
+  <div class="product-image">
+    <img
+      src="https://img.freepik.com/foto-gratis/cafe-oscuro-tazon-sobre-mesa-marron_176474-1988.jpg?size=626&ext=jpg"
+      alt="Nombre del Producto"
+    />
+  </div>
+  <div class="product-info">
+    <h3 class="product-name">Nombre del Producto</h3>
+    <p class="product-description">Breve descripción del producto...</p>
+    <div class="product-actions">
+      <button type="button" class="btn btn-primary">Comprar Ahora</button>
+      <button type="button" class="btn btn-secondary">Aprender Más</button>
+    </div>
+  </div>
+</div>
 <style>
-	.link-card {
-		list-style: none;
-		display: flex;
-		padding: 1px;
-		background-color: #23262d;
-		background-image: none;
-		background-size: 400%;
-		border-radius: 7px;
-		background-position: 100%;
-		transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-		box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
-	}
-	.link-card > a {
-		width: 100%;
-		text-decoration: none;
-		line-height: 1.4;
-		padding: calc(1.5rem - 1px);
-		border-radius: 8px;
-		color: white;
-		background-color: #23262d;
-		opacity: 0.8;
-	}
-	h2 {
-		margin: 0;
-		font-size: 1.25rem;
-		transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-	}
-	p {
-		margin-top: 0.5rem;
-		margin-bottom: 0;
-	}
-	.link-card:is(:hover, :focus-within) {
-		background-position: 0;
-		background-image: var(--accent-gradient);
-	}
-	.link-card:is(:hover, :focus-within) h2 {
-		color: rgb(var(--accent-light));
-	}
+  .product-card {
+    background-color: #f5f5f5;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  .product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .product-image img {
+    width: 100%;
+    aspect-ratio: 4/4;
+    display: block;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .product-info {
+    padding: 16px;
+  }
+
+  .product-name {
+    margin: 0;
+    color: #333;
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+
+  .product-description {
+    margin: 8px 0 16px;
+    color: #666;
+    font-size: 1rem;
+  }
+
+  .product-actions .btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .product-actions .btn-primary {
+    background-color: #c59d5f;
+    color: white;
+  }
+
+  .product-actions .btn-primary:hover {
+    background-color: #b0844f;
+  }
+
+  .product-actions .btn-secondary {
+    background-color: transparent;
+    color: #c59d5f;
+    margin-left: 8px;
+  }
+
+  .product-actions .btn-secondary:hover {
+    background-color: #f5f5f5;
+  }
 </style>
