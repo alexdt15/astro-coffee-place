@@ -1,0 +1,32 @@
+ [
+    {
+      "nombre": "Colombia Aguas Calientes",
+      "nivel_tueste": "Alto",
+      "tipo_cafetera": "filtro",
+      "notas_cata": "chocolate, caramelo, cuerpo cremoso"
+    },
+    {
+      "nombre": "Guatemala Antigua",
+      "nivel_tueste": "Bajo",
+      "tipo_cafetera": "filtro",
+      "notas_cata": "chocolate, caramelo, cuerpo cremoso"
+    },
+    {
+      "nombre": "Etiopía Yirgacheffe",
+      "nivel_tueste": "Alto",
+      "tipo_cafetera": "filtro",
+      "notas_cata": "nuez, toffee, chocolate negro"
+    },
+    {
+      "nombre": "Brasil Cerrado",
+      "nivel_tueste": "Medio",
+      "tipo_cafetera": "filtro",
+      "notas_cata": "frutos rojos, vino tinto, acidez brillante"
+    },
+    {
+      "nombre": "Ruanda Maraba",
+      "nivel_tueste": "Medio",
+      "tipo_cafetera": "espresso",
+      "notas_cata": "chocolate, caramelo, cuerpo cremoso"
+    }
+  ]
