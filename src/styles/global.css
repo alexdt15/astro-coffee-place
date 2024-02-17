@@ -1,15 +1,38 @@
+:root {
+  --color-primary-a0: #ffffff;
+  --color-primary-a10: #fceed8;
+  --color-primary-a20: #f7dcb2;
+  --color-primary-a30: #f0cc8c;
+  --color-primary-a50: #e8bb66;
+  --color-primary-a60: #a9894d;
+  --color-primary-a70: #6e5935;
+  --color-primary-a80: #382e1e;
+  --color-primary-a90: #000000;
+}
+
 html {
   margin: 0;
   box-sizing: border-box;
-  background: #ffff;
+  background: var(--color-primary-a10);
   font-family: Inter, sans-serif;
 }
 body {
+  background-color: var(--color-primary-a10);
   margin: 0 auto;
   width: 100%;
-  max-width: 80ch;
+  max-width: 700px;
   padding: 1rem;
   line-height: 1.5;
+}
+h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  margin-bottom: 1em;
+}
+h2 {
+  text-align: center;
 }
 .nav-links {
   width: 100%;
@@ -33,7 +56,8 @@ body {
 
 .nav-links a:hover,
 .nav-links a:focus {
-  color: #ff9776;
+  transition: 0.1s ease;
+  color: var(--color-primary-a50);
 }
 
 @media screen and (min-width: 636px) {
