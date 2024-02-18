@@ -14,34 +14,27 @@ try {
 
 <BaseLayout title="Coffee Place">
   <h1>Welcome to Coffee Place</h1>
-
-  <ul role="list" class="link-card-grid">
-    {
-      coffeeList.length > 0 ? (
-        coffeeList.map((coffee: any) => (
-          <Card
-            title={coffee.nombre}
-            body={coffee.notas_cata}
-            href={coffee.image}
-          />
-        ))
-      ) : (
-        <div>
-          <h2>Actualmente estamos sin stock</h2>
-          <h3>Pero tranquilo, estamos tostando más!</h3>
-        </div>
-      )
-    }
-  </ul>
+  <main>
+    <section>
+      <article>
+        <img
+          src="https://img.freepik.com/free-psd/disposable-coffee-paper-cup-mockup-design_53876-65833.jpg?size=626&ext=jpg&ga=GA1.1.727995439.1708176167&semt=ais"
+          alt=""
+        />
+        <p>
+          Café espesial to oeno, tueste local no sé qué. Cultivo sostenible y
+          locuras varias
+        </p>
+      </article>
+    </section>
+  </main>
 </BaseLayout>
 
 <style>
   main {
     margin: auto;
     padding: 1rem;
-    width: 800px;
-    max-width: calc(100% - 2rem);
-    color: white;
+    text-align: center;
     font-size: 20px;
     line-height: 1.6;
   }
