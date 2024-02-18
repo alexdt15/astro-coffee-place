@@ -1,0 +1,37 @@
+---
+import "../styles/global.css";
+---
+
+<footer>
+  <p>Coffee Place, diseñado y creado por Álex Delgado</p>
+  <div class="social">
+    <a href="">X</a>
+    <a href="">IG</a>
+    <a href="https://github.com/alexdt15">Github</a>
+  </div>
+</footer>
+<style>
+  footer {
+    margin-top: auto;
+    text-align: center;
+    border-top: 1px solid var(--color-primary-a60);
+  }
+
+  p {
+    font-weight: 700;
+  }
+
+  .social {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+  .social a {
+    color: black;
+    font-weight: 700;
+  }
+  .social a:hover {
+    transition: 0.2s ease;
+    color: var(--color-primary-a50);
+  }
+</style>
