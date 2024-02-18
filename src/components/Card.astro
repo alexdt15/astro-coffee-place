@@ -5,15 +5,15 @@ interface Props {
   href?: string;
 }
 
-const { href, title, body } = Astro.props;
+const DEFAULT_IMG =
+  "https://img.freepik.com/free-psd/packaging-mockup-coffee-shop_53876-57797.jpg?size=626&ext=jpg&ga=GA1.1.727995439.1708176167&semt=ais";
+
+const { href = DEFAULT_IMG, title, body } = Astro.props;
 ---
 
-<div class="product-card">
+<article class="product-card">
   <div class="product-image">
-    <img
-      src="https://img.freepik.com/foto-gratis/cafe-oscuro-tazon-sobre-mesa-marron_176474-1988.jpg?size=626&ext=jpg"
-      alt="Nombre del Producto"
-    />
+    <img src={href} alt="Nombre del Producto" />
   </div>
   <div class="product-info">
     <h3 class="product-name">{title}</h3>
@@ -23,75 +23,77 @@ const { href, title, body } = Astro.props;
       <button type="button" class="btn btn-secondary">Aprender Más</button>
     </div>
   </div>
-  <style>
-    .product-card {
-      background-color: #f5f5f5;
-      border: 1px solid #e0e0e0;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
-    }
+</article>
+<style>
+  .product-card {
+    background-color: #f5f5f5;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
 
-    .product-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-    }
+  .product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
 
-    .product-image img {
-      width: 100%;
-      aspect-ratio: 4/4;
-      display: block;
-      border-bottom: 1px solid #e0e0e0;
-    }
+  .product-image img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    height: auto;
+    border-bottom: 1px solid #e0e0e0;
+  }
 
-    .product-info {
-      padding: 16px;
-      text-align: center;
-    }
+  .product-info {
+    padding: 16px;
+    text-align: center;
+  }
 
-    .product-name {
-      margin: 0;
-      color: #333;
-      font-size: 1.25rem;
-      font-weight: 700;
-    }
+  .product-name {
+    margin: 0;
+    color: #333;
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
 
-    .product-description {
-      margin: 8px 0 16px;
-      color: #666;
-      font-size: 1rem;
-    }
+  .product-description {
+    margin: 8px 0 16px;
+    color: #666;
+    font-size: 1rem;
+    height: 40px;
+  }
 
-    .product-actions .btn {
-      padding: 8px 16px;
-      border: none;
-      border-radius: 4px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
+  .product-actions .btn {
+    margin-top: 4px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
 
-    .product-actions .btn-primary {
-      background-color: var(--color-primary-a50);
-      color: white;
-    }
+  .product-actions .btn-primary {
+    background-color: var(--color-primary-a50);
+    color: white;
+  }
 
-    .product-actions .btn-primary:hover {
-      background-color: #b0844f;
-    }
+  .product-actions .btn-primary:hover {
+    background-color: #b0844f;
+  }
 
-    .product-actions .btn-secondary {
-      background-color: transparent;
-      border: 1px solid var(--color-primary-a50);
-      color: #c59d5f;
-      margin-left: 8px;
-    }
+  .product-actions .btn-secondary {
+    background-color: transparent;
+    border: 1px solid var(--color-primary-a50);
+    color: #c59d5f;
+    margin-left: 8px;
+  }
 
-    .product-actions .btn-secondary:hover {
-      background-color: #f5f5f5;
-    }
-  </style>
-</div>
+  .product-actions .btn-secondary:hover {
+    background-color: #f5f5f5;
+  }
+</style>
