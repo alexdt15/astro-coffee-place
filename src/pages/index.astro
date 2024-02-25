@@ -1,15 +1,15 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Card from "../components/Card.astro";
-let coffeeList = [];
-try {
-  const response = await fetch("https://apimocha.com/place/coffee-list");
-  const coffeeResult = await response.json();
-  //TODO: check https://github.com/typicode/lowdb as an alternative
-  coffeeList = coffeeResult;
-} catch (error) {
-  console.log(error);
-}
+// let coffeeList = [];
+// try {
+//   const response = await fetch("https://apimocha.com/place/coffee-list");
+//   const coffeeResult = await response.json();
+//   //TODO: check https://github.com/typicode/lowdb as an alternative
+//   coffeeList = coffeeResult;
+// } catch (error) {
+//   console.log(error);
+// }
 ---
 
 <BaseLayout title="Coffee Place">
@@ -17,14 +17,18 @@ try {
   <main>
     <section>
       <article>
-        <img
-          src="https://img.freepik.com/free-psd/disposable-coffee-paper-cup-mockup-design_53876-65833.jpg?size=626&ext=jpg&ga=GA1.1.727995439.1708176167&semt=ais"
-          alt=""
-        />
-        <p>
-          Café espesial to oeno, tueste local no sé qué. Cultivo sostenible y
-          locuras varias
-        </p>
+        <div class="specialty">
+          <img
+            src="https://img.freepik.com/free-psd/disposable-coffee-paper-cup-mockup-design_53876-65833.jpg?size=626&ext=jpg&ga=GA1.1.727995439.1708176167&semt=ais"
+            alt=""
+          />
+          <p>
+            Café espesial to oeno, tueste local no sé qué. Cultivo sostenible y
+            locuras varias Café espesial to oeno, tueste local no sé qué.
+            Cultivo sostenible y locuras varias Café espesial to oeno, tueste
+            local no sé qué. Cultivo sostenible y locuras varias
+          </p>
+        </div>
       </article>
     </section>
   </main>
@@ -40,5 +44,18 @@ try {
   }
   h3 {
     text-align: center;
+  }
+  .specialty {
+    display: flex;
+    gap: 2rem;
+  }
+  .specialty img {
+    border-radius: 10px;
+    box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.3);
+    width: 350px;
+  }
+  .specialty p {
+    text-wrap: pretty;
+    text-align: justify;
   }
 </style>

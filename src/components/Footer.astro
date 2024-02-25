@@ -1,14 +1,20 @@
 ---
+import { Icon } from "astro-icon/components";
 import "../styles/global.css";
+
+const currentYear = new Date().getFullYear();
 ---
 
 <footer>
-  <p>Coffee Place, diseñado y creado por Álex Delgado</p>
   <div class="social">
-    <a href="">X</a>
-    <a href="">IG</a>
-    <a href="https://github.com/alexdt15">Github</a>
+    <a href="https://www.linkedin.com/in/alejandrodelgadotrujillo/"
+      ><Icon name="linkedin-logo-100" /></a
+    >
+    <a href="https://instagram.com/alexdt15"><Icon name="ig-icon" /></a>
+    <a href="https://github.com/alexdt15"><Icon name="github-icon" /></a>
   </div>
+  <p>© {currentYear} Coffee. Place Diseñado y creado por Álex Delgado.</p>
+  <p>Todos los derechos reservados.</p>
 </footer>
 <style>
   footer {
@@ -16,15 +22,22 @@ import "../styles/global.css";
     text-align: center;
     border-top: 1px solid var(--color-primary-a60);
   }
+  [data-icon] {
+    font-size: 1.5rem;
+  }
+
+  [data-icon="linkedin-logo-100"] {
+    font-size: 1.6rem;
+  }
 
   p {
     font-weight: 700;
   }
 
   .social {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
+    display: inline-flex;
+    gap: 15px;
+    padding: 10px;
   }
   .social a {
     color: black;
