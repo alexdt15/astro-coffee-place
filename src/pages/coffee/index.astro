@@ -1,30 +1,38 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Card from "../../components/Card.astro";
-import coffeeList from "../../data/coffeeList.json";
-import { type Coffee } from "../../data/types";
-
-const coffeeListResult: Coffee[] = JSON.stringify(
-  coffeeList
-) as unknown as Coffee[];
+import { db } from "astro:db";
+import { CoffeeList } from "astro:db";
+let loading = true;
+let coffeeListResult;
+try {
+  coffeeListResult = await db.select().from(CoffeeList);
+} catch (error) {
+  console.log(error);
+}
+loading = false;
 ---
 
 <BaseLayout>
   <h2>List of Coffee Origins ☕</h2>
-  <ul role="list" class="link-card-grid">
-    {
-      coffeeListResult.length > 0 ? (
-        coffeeList.map((coffee) => (
-          <Card title={coffee.name} body={coffee.nuances} href={coffee.image} />
-        ))
-      ) : (
-        <div>
-          <h2>Actualmente estamos sin stock</h2>
-          <h3>Pero tranquilo, estamos tostando más!</h3>
-        </div>
-      )
-    }
-  </ul>
+  {
+    loading ? (
+      <h3>Almost done roasting...</h3>
+    ) : (
+      <ul role="list" class="link-card-grid">
+        {coffeeListResult && coffeeListResult.length > 0 ? (
+          coffeeListResult.map(({ name, nuances, image }) => (
+            <Card title={name} body={nuances!} href={image} />
+          ))
+        ) : (
+          <div>
+            <h2>Actualmente estamos sin stock</h2>
+            <h3>Pero tranquilo, estamos tostando más!</h3>
+          </div>
+        )}
+      </ul>
+    )
+  }
   <style>
     h3 {
       text-align: center;
