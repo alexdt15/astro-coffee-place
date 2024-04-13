@@ -1,7 +1,64 @@
 ---
+import type { Code } from "astro:components";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout>
   <h2>About page</h2>
+
+  <article>
+    <div class="about-copy">
+      <img
+        src="https://img.freepik.com/free-photo/female-barista-with-apron-decorating-coffee-glass-with-milk_23-2148824457.jpg?t=st=1713020007~exp=1713023607~hmac=f1cf404389724fd272710c157845c0627ed3601fccb454443db1e58845327013&w=740"
+        alt=""
+      />
+      <div class="">
+        <h3>Pasión por lo que hacemos</h3>
+        <p>
+          Coffee place nace como la idea de un par de amigos que disfrutan
+          literalmente del "café para cafeteros"
+        </p>
+        <br />
+        <p>
+          Allá por el 2020, y adentrándose al mundillo del barismo y el café de
+          especialidad, estos dos amigos se hacen conscientes de un problema: el
+          café de especialidad <strong>muy de nicho</strong>
+        </p>
+        <p>
+          "Sería genial que toda la gente a la que conocemos tuviera la
+          oportunidad de probar un café al que no haya que echarle azúcar para
+          poder disfrutarlo", decían.
+        </p>
+        <p>
+          Pero la realidad es que el consumidor de café promedio no está
+          dispuesto a gastarse los precios desorbitados que los "frikis" como
+          nosotros estamos ya tan acostumbrados a pagar
+        </p>
+        <br />
+        <p>
+          Así nace el proyecto <b><i>Coffee Place</i>,</b> el sueño de democratizar
+          el café de calidad, comercio justo y medioambientalmente respetuoso
+        </p>
+      </div>
+    </div>
+  </article>
+  <style>
+    .about-copy {
+      display: flex;
+      gap: 2.5rem;
+      margin: 2rem 0 4rem 0;
+    }
+
+    .about-copy img {
+      border-radius: 10px;
+      box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.3);
+      width: 350px;
+    }
+
+    .about-copy p {
+      text-wrap: pretty;
+      text-align: justify;
+      float: inline-start;
+    }
+  </style>
 </BaseLayout>
